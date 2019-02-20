@@ -1,0 +1,13 @@
+<h1> Edit People </h1>
+<%= form_for @people do |f|%>
+    <%= f.label :full_name %>
+    <%= f.text_field :full_name %>
+
+    <%= f.label :gender %>
+    <%= f.text_field :gender %>
+
+    <%= f.label :age %>
+    <%= f.text_field :age %>
+
+    <%= f.submit %>
+<%= end %>

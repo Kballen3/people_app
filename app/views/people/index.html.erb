@@ -1,8 +1,10 @@
 <h1>People App</h1>
+    <p><%= link_to 'More People', new_people_path %></p>
 <p><% @people.each do |people| %></p>
     <h2><%= page.title %></h2>
     <%= link_to 'People Info', people_path(people.id) %>
-    <%= link_to 'More People', new_people_path %>
+    <%= link_to 'Edit page', edit_people_path(people.id) %>
+    <%= link_to 'Destroy People', page, method: :delete %>
 <% end %>
 
 

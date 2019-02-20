@@ -27,3 +27,22 @@ private
   def page_params
     params.require(:person).permit(:full_name, :gender, :age)
   end
+
+  def edit
+    @people = People.find(params[:id])
+  end
+
+  def update
+    @people = People.find(params[:id])
+    if @people.update(people_params)
+      redirect_to people_path
+    else 
+      render :edit
+    end
+  end
+
+  def destroy
+    People.find(params[:id]).destroy
+    redirect_to people_path
+  end
+end
