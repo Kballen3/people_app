@@ -15,7 +15,7 @@ class PeopleController < ApplicationController
     @people = Person.new(page_params)
 
     if @people.save
-      redirect_to page_path
+      redirect_to person_path
     else
       render :new
     end
@@ -28,21 +28,21 @@ private
     params.require(:person).permit(:full_name, :gender, :age)
   end
 
-  def edit
-    @people = People.find(params[:id])
-  end
 
-  def update
+def edit
     @people = People.find(params[:id])
-    if @people.update(people_params)
-      redirect_to people_path
-    else 
+end
+
+def update
+    @people = People.find(params[:id])
+  if @people.update(people_params)
+      redirect_to person_path
+  else 
       render :edit
-    end
   end
+end
 
-  def destroy
+def destroy
     People.find(params[:id]).destroy
-    redirect_to people_path
-  end
+    redirect_to person_path
 end
